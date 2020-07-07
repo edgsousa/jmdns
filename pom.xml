@@ -66,6 +66,18 @@ The project was originally started in December 2002 by Arthur van Hoff at Strang
 			<version>3.3.1</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-easymock</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<resources>
@@ -78,7 +90,7 @@ The project was originally started in December 2002 by Arthur van Hoff at Strang
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
+				<version>3.8.1</version>
 				<configuration>
 					<source>${jvm.version}</source>
 					<target>${jvm.version}</target>
@@ -170,6 +182,7 @@ The project was originally started in December 2002 by Arthur van Hoff at Strang
 			    <artifactId>maven-javadoc-plugin</artifactId>
 			    <version>2.10.3</version>
 			    <configuration>
+					<source>8</source>
 			        <outputDirectory>${project.build.directory}/javadoc</outputDirectory>
 			    </configuration>
 			    <executions>
@@ -219,7 +232,9 @@ The project was originally started in December 2002 by Arthur van Hoff at Strang
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
-		<jvm.version>1.6</jvm.version>
+		<jvm.version>11</jvm.version>
+		<javadoc.opts>-Xdoclint:none</javadoc.opts>
+		<powermock.version>2.0.2</powermock.version>
 	</properties>
 
 	<profiles>
@@ -238,16 +253,5 @@ The project was originally started in December 2002 by Arthur van Hoff at Strang
 				</plugins>
 			</build>
 		</profile>
-    <!-- We need this profile in order to set '-Xdoclint:none' as a project property which will be used later by maven-javadoc-plugin as an 'additionalparam' to be passed to the javadoc.exe. -->
-    <!-- This option will be used only if the JDK version is 1.8 or higher. Earlier versions of javadoc.exe does not accept this option. -->
-    <profile>
-      <id>doclint-java8-disable</id>
-      <activation>
-        <jdk>[1.8,)</jdk>
-      </activation>
-      <properties>
-        <javadoc.opts>-Xdoclint:none</javadoc.opts>
-      </properties>
-    </profile>
 	</profiles>
 </project>
