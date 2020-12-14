@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.jmdns</groupId>
 	<artifactId>jmdns</artifactId>
-	<version>3.5.6-SNAPSHOT</version>
+	<version>3.5.7-SNAPSHOT</version>
 	<name>JmDNS</name>
 	<packaging>jar</packaging>
 	<description>JmDNS is a Java implementation of multi-cast DNS and can be used for service registration and discovery in local area networks. JmDNS is fully compatible with Apple's Bonjour.
@@ -57,13 +57,25 @@ The project was originally started in December 2002 by Arthur van Hoff at Strang
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>4.13.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.easymock</groupId>
 			<artifactId>easymock</artifactId>
 			<version>3.3.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>2.0.7</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-easymock</artifactId>
+			<version>2.0.7</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -248,6 +260,6 @@ The project was originally started in December 2002 by Arthur van Hoff at Strang
       <properties>
         <javadoc.opts>-Xdoclint:none</javadoc.opts>
       </properties>
-    </profile>
+		</profile>
 	</profiles>
 </project>
